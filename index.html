@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the aarvos diary thing</title>
+<style>
+  :root{
+    --paper:#e9e0c4;
+    --panel:#f7f1dc;
+    --edge:#93865c;
+  }
+
+  * { box-sizing: border-box; }
+
+  html{ background:#5c5236; }
+
+  body{
+    margin:0;
+    background-color:#e9e0c4;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 26px);
+    color:#3a2f18;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size:16px;
+    line-height:1.46;
+  }
+
+  a { color:#8b1a1a; }
+  a:visited { color:#5c1414; }
+  a:hover { color:#c23616; }
+
+  table.page{
+    width:100%;
+    max-width:680px;
+    margin:0 auto;
+    border-collapse:collapse;
+  }
+
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+    padding:10px 12px 50px;
+  }
+
+  /* ===== Header — hand-built, not a clean centered lockup ===== */
+  .titlebar{
+    background:#221c0e;
+    padding:4px 10px;
+    font-size:11px;
+    color:#a99552;
+    font-family: "Courier New", monospace;
+  }
+
+  .banner{
+    background:#2d2410 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><rect width='4' height='4' fill='%232d2410'/><rect width='1' height='1' fill='%23342a12'/></svg>");
+    padding:14px 16px 10px;
+    border-bottom:5px solid #6b1d1d;
+  }
+  .banner table{ width:100%; }
+  .banner h1{
+    margin:0;
+    font-size:27px;
+    font-weight:bold;
+    color:#e8d3a0;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing:0.5px;
+    text-shadow: 2px 2px 0 #000;
+    transform: rotate(-0.6deg);
+    display:inline-block;
+  }
+  .banner .sub{
+    color:#b7a874;
+    font-size:12px;
+    font-style:italic;
+    margin:5px 2px 0;
+  }
+  .banner .under-con{
+    float:right;
+    background:#fff8dd;
+    color:#7a1010;
+    border:2px solid #7a1010;
+    font-size:10px;
+    font-weight:bold;
+    padding:3px 5px;
+    transform: rotate(3deg);
+    font-family: "Courier New", monospace;
+  }
+
+  .navstrip{
+    background:#c9b988;
+    border-bottom:1px solid #8a7a4e;
+    padding:4px 8px;
+    font-size:12px;
+    font-family: "Times New Roman", serif;
+  }
+  .navstrip a{
+    color:#241c0e;
+    text-decoration:none;
+    margin-right:4px;
+  }
+  .navstrip a:hover{ text-decoration:underline; }
+  .navstrip .sep{ color:#7a6c42; margin-right:4px; }
+
+  /* ===== Body content ===== */
+  .content{
+    background:var(--panel);
+    border-left:1px solid #b8a876;
+    border-right:1px solid #b8a876;
+    padding:14px 16px 4px;
+  }
+
+  h2.section{
+    font-size:16px;
+    font-weight:bold;
+    color:#5c1414;
+    margin:18px 0 8px;
+    border-bottom:2px solid #5c1414;
+    display:inline-block;
+    padding:0 2px 1px 0;
+  }
+
+  .intro p{ margin:0 0 10px; }
+  .intro p.small{ font-size:13px; color:#5c4d2c; }
+
+  .polaroid-row{
+    margin:10px 0 14px;
+    overflow:hidden;
+  }
+  .polaroid{
+    float:left;
+    width:29%;
+    margin-right:2%;
+    background:#fffdf5;
+    border:1px solid #999;
+    padding:4px 4px 16px;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.3);
+    font-size:9px;
+    text-align:center;
+    color:#665a3a;
+  }
+  .polaroid:nth-child(1){ transform:rotate(-3deg); }
+  .polaroid:nth-child(2){ transform:rotate(1.5deg); margin-top:6px; }
+  .polaroid:nth-child(3){ transform:rotate(-1deg); }
+  .polaroid .ph{
+    background:repeating-linear-gradient(45deg,#d8caa0,#d8caa0 6px,#cabb8e 6px,#cabb8e 12px);
+    aspect-ratio:4/3;
+    margin-bottom:4px;
+  }
+
+  hr.old{
+    border:none;
+    border-top:1px solid #b8a876;
+    border-bottom:1px solid #fff;
+    margin:14px 0;
+  }
+
+  .sig{
+    text-align:right;
+    font-style:italic;
+    font-size:13px;
+    color:#5c4d2c;
+    margin:2px 6px 10px 0;
+  }
+
+  /* ===== counter ===== */
+  .counter-row{
+    text-align:center;
+    margin:16px 0 10px;
+    font-size:11px;
+    color:#5c4d2c;
+  }
+  .counter-digits{
+    display:inline-block;
+    background:#000;
+    padding:3px 5px;
+    margin-left:4px;
+    vertical-align:middle;
+  }
+  .counter-digits span{
+    display:inline-block;
+    background:#1a1a1a;
+    color:#5cff5c;
+    font-family:"Courier New", monospace;
+    font-weight:bold;
+    font-size:15px;
+    padding:1px 3px;
+    border:1px solid #333;
+    margin-right:1px;
+  }
+
+  /* ===== Submit box — deliberately a bit clunky ===== */
+  .submitbox{
+    background:#fbf6e4;
+    border:2px groove #b8a876;
+    margin:16px 0;
+    padding:12px 14px 14px;
+  }
+  .submitbox h2.section{ margin-top:0; }
+  .submitbox p.note{
+    font-size:12px;
+    color:#6b5a35;
+    margin:0 0 10px;
+  }
+  table.form-tbl{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+  table.form-tbl td{
+    padding:4px 4px;
+    vertical-align:top;
+  }
+  table.form-tbl td.lbl{
+    width:120px;
+    font-weight:bold;
+    color:#3a2f18;
+    padding-top:7px;
+  }
+  input[type=text], textarea{
+    width:100%;
+    font-family:"Times New Roman", serif;
+    font-size:14px;
+    padding:4px 6px;
+    border:2px inset #a3936a;
+    background:#fffef8;
+    color:#241c0e;
+  }
+  textarea{ resize:vertical; min-height:100px; }
+
+  .go-btn{
+    font-family:"Times New Roman", serif;
+    font-size:14px;
+    font-weight:bold;
+    color:#1a1a1a;
+    background:#d8c98e;
+    border:2px outset #b8a876;
+    padding:5px 18px;
+    cursor:pointer;
+    margin-top:6px;
+  }
+  .go-btn:active{ border-style:inset; }
+  .form-msg{ font-size:12px; margin-top:6px; min-height:14px; font-weight:bold; }
+  .form-msg.ok{ color:#2f5c2f; }
+  .form-msg.err{ color:#8b1a1a; }
+
+  /* ===== entries ===== */
+  .archive-note{
+    font-size:12px;
+    color:#6b5a35;
+    margin:2px 0 12px;
+  }
+  .sortline{
+    font-size:12px;
+    color:#5c4d2c;
+    margin-bottom:8px;
+  }
+  select{
+    font-family:"Times New Roman", serif;
+    font-size:12px;
+    border:1px solid #a3936a;
+  }
+
+  .entry{
+    background:#fffef8;
+    border:1px solid #c9b988;
+    margin-bottom:10px;
+    padding:8px 12px 10px;
+  }
+  .entry:nth-child(even){ background:#faf3dd; }
+  .entry .eh{
+    font-family:"Courier New", monospace;
+    font-size:13px;
+    font-weight:bold;
+    color:#5c1414;
+    border-bottom:1px dashed #c9b988;
+    padding-bottom:4px;
+    margin-bottom:6px;
+  }
+  .entry .em{
+    font-weight:normal;
+    font-size:11px;
+    color:#8a7a4e;
+    float:right;
+  }
+  .entry .eb{
+    white-space:pre-wrap;
+    font-size:15px;
+  }
+  .entry.empty{
+    text-align:center;
+    font-style:italic;
+    color:#8a7a4e;
+  }
+
+  /* ===== footer, guestbook-sidebar style ===== */
+  .footer{
+    background:#221c0e;
+    color:#a99552;
+    font-size:11px;
+    padding:12px 14px;
+    margin-top:6px;
+    text-align:center;
+  }
+  .footer a{ color:#d9b45c; }
+  .footer .blink{
+    color:#ff6b6b;
+    font-weight:bold;
+    animation: fl 1.4s infinite;
+  }
+  @keyframes fl{ 0%,100%{opacity:1;} 50%{opacity:0.15;} }
+  @media (prefers-reduced-motion: reduce){ .footer .blink{ animation:none; } }
+  .webring{
+    margin-top:8px;
+    font-size:10px;
+    color:#6b5a35;
+  }
+
+  @media (max-width:480px){
+    .banner h1{ font-size:21px; }
+    .polaroid{ width:31%; margin-right:1.5%; }
+    table.form-tbl td.lbl{ width:auto; display:block; padding-top:8px; }
+    table.form-tbl tr, table.form-tbl td{ display:block; width:100%; }
+  }
+</style>
+</head>
+<body>
+<div class="titlebar">C:\AARVOSNET\PUBLIC_HTML\INDEX.HTM — last edited by angelos_11</div>
+
+<div class="wrap">
+
+  <div class="banner">
+    <span class="under-con">SITE STILL BEING BUILT</span>
+    <h1>the aarvos diary thing</h1>
+    <div class="sub">a book i found under my floor, being put up here one page at a time</div>
+  </div>
+
+  <div class="navstrip">
+    <a href="#about">about</a><span class="sep">|</span><a href="#add">add a page</a><span class="sep">|</span><a href="#entries">read it</a><span class="sep">|</span><a href="#end">bottom of page</a>
+  </div>
+
+  <div class="content" id="about">
+
+    <div class="intro">
+      <p>ok so. i'm angelos, i'm 11, and we just moved into this house in Aarvos Country. i was pulling up the cupboard floor because it was all rotted and gross and there was this book just sitting under there. coffee-brown cover, kind of damp-smelling. turns out it's one of the old government diaries — apparently everyone from age 10 to 18 used to HAVE to keep one, by law, which is insane to me, but whatever, old world i guess.</p>
+
+      <p class="small">(i'm not putting the whole thing up at once because 1) it's long and 2) i'm typing this all out by hand off the actual pages so it takes forever. new bits go up when i finish them.)</p>
+
+      <div class="polaroid-row">
+        <div class="polaroid"><div class="ph"></div>the floorboard</div>
+        <div class="polaroid"><div class="ph"></div>cover, kind of damp</div>
+        <div class="polaroid"><div class="ph"></div>page one</div>
+      </div>
+
+      <p>what's actually IN it — some kid's whole life, basically, starting when the diary law gets passed and their parents start pushing them toward this company called "Elegchos" that's supposed to turn you into a doctor or a lawyer. that's just what's expected, apparently, if you're a good kid with good parents. it goes on for DECADES though and it does not stay just doctor-and-lawyer the whole way through, which is the part that's actually got me hooked on reading it.</p>
+
+      <p>if your family's got one of these old diaries in an attic or wherever, i really want to add it in here too. more diaries = more of the actual picture, not just the version they teach us in school.</p>
+    </div>
+
+    <hr class="old">
+
+    <div class="counter-row">
+      you are visitor number
+      <span class="counter-digits" id="counter-digits"></span>
+      &nbsp;(probably wrong, i don't really know how these work)
+    </div>
+
+  </div>
+
+  <div class="submitbox" id="add">
+    <h2 class="section">add a page to the archive</h2>
+    <p class="note">got a page, a photo of a page, or you just remember what it said? type it in below and hit the button. it'll save right here in your browser so it's still there next time you load the page — but it stays on your device, doesn't go anywhere else.</p>
+
+    <table class="form-tbl">
+      <tr>
+        <td class="lbl">date on the page</td>
+        <td><input type="text" id="f-date" placeholder="however it's written — 2039/02/01, or &quot;my sweet sixteenth&quot;, whatever"></td>
+      </tr>
+      <tr>
+        <td class="lbl">whose diary</td>
+        <td><input type="text" id="f-diarist" placeholder="e.g. the one from my floorboard, or your own family's"></td>
+      </tr>
+      <tr>
+        <td class="lbl">your name</td>
+        <td><input type="text" id="f-submitter" placeholder="optional, can leave blank"></td>
+      </tr>
+      <tr>
+        <td class="lbl">the actual entry</td>
+        <td><textarea id="f-body" placeholder="Dear Diary,"></textarea></td>
+      </tr>
+    </table>
+    <button class="go-btn" id="f-submit">add it</button>
+    <div class="form-msg" id="f-msg"></div>
+  </div>
+
+  <div class="content" id="entries">
+    <h2 class="section">the pages so far</h2>
+    <div class="archive-note" id="entry-count-label">loading&hellip;</div>
+    <div class="sortline">
+      order:
+      <select id="sort-order">
+        <option value="asc">oldest first (how i'm reading it)</option>
+        <option value="desc">newest first</option>
+      </select>
+    </div>
+
+    <div id="entries-list"></div>
+
+  </div>
+
+  <div class="footer" id="end">
+    <p>this page is one kid with a floorboard and too much time on his hands.<br>
+    if you know ANYTHING about "Elegchos" or why the diary law got passed, <span class="blink">please tell me.</span></p>
+    <div class="webring">aarvos country local history &middot; no ads, no cookies, mostly just winging it &middot; built 2071</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var STARTER_ENTRIES = [
+    {date:"2030/01/24", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nThe government have passed a law to have all their citizens from 10-18 to write a diary. I don't really know why they have done something as weird as this, but I guess it is what it is. Mum, if you're reading this (which I know you are reading this) then you won't need an introduction to me. So I won't give you an introduction. I'm probably only going to write about some important moments as I don't feel like writing everyday or if something interesting happens I guess"},
+    {date:"2030/09/17", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nA new company called \u201cElegchos\u201d (which weirdo named it that?) has just popped right from the edge of freaking nowhere. It has been the first company to reach 100 billion valuation that has been founded after 2030. It teaches children about medicine and law; However, I have begun to dig deeper into this mysterious company, and what my keen senses found is that many parents put them there to become doctors and lawyers! My keen intuition saves the day. My friend \u201cplaceholder1\u201d has already been going there since April. My parents are thinking about sending me there as well. I do NOT want to be part of that brainwash-fest. My friend Akrasia was an outsider like me, who knows what the government are REALLY up to. But after she went into there she has NOT been herself. I might have to look into it more..."},
+    {date:"2031/01/29", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nughhhhhhhhh\n\nTomorrow is the end of school it's a bit depressing but at least I can be with my friends again, my parents told me that I would be attending \u201cElegchos\u201d I wonder what it will be like, I hope I can be in \u201cplaceholders\u201d class I hope it will be a bit better than normal school!"},
+    {date:"2034/10/08", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nMy parents have been pestering me to start studying for my exams. They really want me to be a doctor. So much that they won't feed me dinner unless I can prove to them that I've learned something new. It's really annoying, but I feel more confident in myself as an individual. Tomorrow is my sweet sixteenth, so more than getting presents I just want to not study for a day."},
+    {date:"2035/10/15", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nMy tutor/teacher at \u201cElegchos\u201d has just announced a new higher education program for those above 18 and a new entrance exam, I've heard that they are inviting several professors from the best universities to teach there but it's just a rumor right now."},
+    {date:"2037/10/22", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nMy entrance exam to \u201cElegchos\u201d is in a month, I am studying 10 hours a day, my parents are a bit worried about my health but I know that it is a small cost to be able to be able to enter a university as prestigious as \u201c\u201d"},
+    {date:"2037/11/22", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nMy entrance exam is today, and it will decide which of the courses I can take. I'm really nervous. Last year, 45,052 people took the exam, but only 213 got accepted. That's only 0.3%! There are some other schools, but they aren't nearly as good."},
+    {date:"2038/04/02", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nI've just been accepted into the Advanced Medicines Course. I just received my results, and I don't really know who to share my results with, so I guess the first one I'll tell is my diary. Only a handful of students were actually selected for the program, so I suppose my studying has paid off. There might be some pressure from the staff and students at my new school, because I had to face a lot of competition to get to this point, so I'll need to do my best to be accepted amongst the students there."},
+    {date:"2039/01/15", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nMy first day of school starts in 2 weeks. I'm a bit nervous. I wonder how it'll go with the other students, I hope I can make a few friends, but I suppose we'll have to see how it'll go. I might not write as much after I start studying, but I'll try to write about important events that might happen."},
+    {date:"2039/02/01", diarist:"the diary under my floorboard", submitter:"angelos", body:"My first day of school just ended! I met a couple of people who seem chill"},
+    {date:"2052/03/27", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nThis feels like a waste of time, but I feel better knowing that I can maintain my literacy in a more digital age. I don't exactly envision much of a place for writing \u2018manually\u2019 in the future, so maybe this skill will die out in the future. Growing up, I used to see pieces of true art when visiting galleries, but children these days don't have the ability to pick up a pencil and start drawing whatever they feel. I know I'm not really supposed to communicate thoughts that critique the government in this book, but something I have noticed is that they are killing creativity. I don't exactly know what my friends are thinking about this issue, or whether they consider it one at all, but maybe they might have noticed the same thing as I have."},
+    {date:"2055/09/10", diarist:"the diary under my floorboard", submitter:"angelos", body:"Dear Diary,\n\nI am considering moving out of my home, due to lack of a better alternative. When I envisioned being a doctor, I also hoped for enough money to make my parents happy with me. Due to an influx of people into the medical field, brought about by the government, becoming a doctor of some sort has lost its value, meaning poorer pay. Some of the jobs which were ridiculed when I was growing up are now being paid more than I could imagine. I suppose that's how life goes. You won't get everything you want. The government is considering moving everything, including diary writing, online, which I believe is going to be a method of surveillance."}
+  ];
+
+  var listEl = document.getElementById("entries-list");
+  var countLabel = document.getElementById("entry-count-label");
+  var sortSelect = document.getElementById("sort-order");
+  var STORAGE_KEY = "aarvos-diary-entries";
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  function parseYear(dateStr){
+    if(!dateStr) return null;
+    var m = String(dateStr).match(/(\d{4})/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function sortKey(dateStr){
+    if(!dateStr) return "9999";
+    var m = String(dateStr).match(/(\d{4})[\/\-.]?(\d{2})?[\/\-.]?(\d{2})?/);
+    if(m){ return (m[1]||"9999") + (m[2]||"00") + (m[3]||"00"); }
+    return "9999" + dateStr;
+  }
+
+  function render(entries){
+    var order = sortSelect.value;
+    var sorted = entries.slice().sort(function(a,b){
+      var ka = sortKey(a.date), kb = sortKey(b.date);
+      if(ka < kb) return order === "asc" ? -1 : 1;
+      if(ka > kb) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    if(sorted.length === 0){
+      listEl.innerHTML = '<div class="entry empty">nothing here yet — add the first page above</div>';
+    } else {
+      listEl.innerHTML = sorted.map(function(e){
+        var meta = [];
+        if(e.diarist) meta.push("from: " + escapeHtml(e.diarist));
+        if(e.submitter) meta.push("typed up by " + escapeHtml(e.submitter));
+        return '' +
+          '<div class="entry">' +
+            '<div class="eh">' + escapeHtml(e.date || "no date given") +
+              '<span class="em">' + meta.join(" &middot; ") + '</span>' +
+            '</div>' +
+            '<div class="eb">' + escapeHtml(e.body || "") + '</div>' +
+          '</div>';
+      }).join("");
+    }
+
+    countLabel.textContent = sorted.length + (sorted.length === 1 ? " page up so far" : " pages up so far");
+  }
+
+  function loadEntries(){
+    try{
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      if(raw){ return JSON.parse(raw); }
+    }catch(e){ /* storage blocked or unavailable — fall through */ }
+    return STARTER_ENTRIES.slice();
+  }
+
+  function saveEntries(entries){
+    try{
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      return true;
+    }catch(e){
+      return false;
+    }
+  }
+
+  function showMsg(text, ok){
+    var el = document.getElementById("f-msg");
+    el.textContent = text;
+    el.className = "form-msg " + (ok ? "ok" : "err");
+  }
+
+  function addEntry(entry){
+    var entries = loadEntries();
+    entries.push(entry);
+    var ok = saveEntries(entries);
+    if(ok){ render(entries); }
+    return ok;
+  }
+
+  function wireForm(){
+    document.getElementById("f-submit").addEventListener("click", function(){
+      var date = document.getElementById("f-date").value.trim();
+      var diarist = document.getElementById("f-diarist").value.trim();
+      var submitter = document.getElementById("f-submitter").value.trim();
+      var body = document.getElementById("f-body").value.trim();
+
+      if(!body){
+        showMsg("you didn't actually put anything in the entry box", false);
+        return;
+      }
+
+      var ok = addEntry({ date: date, diarist: diarist, submitter: submitter, body: body, createdAt: Date.now() });
+
+      if(ok){
+        showMsg("added — saved in this browser", true);
+        document.getElementById("f-date").value = "";
+        document.getElementById("f-diarist").value = "";
+        document.getElementById("f-submitter").value = "";
+        document.getElementById("f-body").value = "";
+      } else {
+        showMsg("hm, that didn't save. try again?", false);
+      }
+    });
+
+    sortSelect.addEventListener("change", function(){
+      render(loadEntries());
+    });
+  }
+
+  function renderCounter(){
+    // a fake, slightly-off visitor counter, styled like the old digit-strip gifs
+    var base = 41207;
+    var jitter = Math.floor(Math.random() * 6);
+    var n = String(base + jitter).padStart(6, "0");
+    var el = document.getElementById("counter-digits");
+    el.innerHTML = n.split("").map(function(d){ return "<span>"+d+"</span>"; }).join("");
+  }
+
+  function init(){
+    wireForm();
+    renderCounter();
+    render(loadEntries());
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
