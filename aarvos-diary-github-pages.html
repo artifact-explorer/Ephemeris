@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>angelos diary project !!</title>
+<style>
+
+body {
+	background-color: #d8cda3;
+	font-family: "Times New Roman", serif;
+	color: #2b2200;
+	margin: 0px;
+}
+
+h1 {
+	font-size: 32px;
+	color: #fff2c9;
+	text-shadow: 2px 2px 0px black;
+}
+
+/* dont touch this lol took forever to get it centered */
+.title-box {
+	background-color: #241c0e;
+	padding: 15px;
+	text-align: center;
+	border-bottom: 6px solid maroon;
+}
+
+.marquee-thing {
+	background: yellow;
+	color: red;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 3px;
+	text-align: center;
+	border: 2px dashed red;
+}
+
+.container {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f5eecb;
+	padding: 10px 20px;
+	border-left: 1px solid #a3936a;
+	border-right: 1px solid #a3936a;
+}
+
+.navbar {
+	background-color: #b8a876;
+	padding: 5px;
+	font-size: 13px;
+	text-align: center;
+}
+
+.navbar a {
+	color: #241c0e;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	text-decoration: underline;
+	color: red;
+}
+
+.aboutsection {
+	margin-top: 10px;
+}
+
+.aboutsection p {
+	text-align: justify;
+	line-height: 1.4;
+}
+
+.picsrow {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.picbox {
+	float: left;
+	width: 30%;
+	margin-right: 1%;
+	background-color: white;
+	border: 1px solid grey;
+	text-align: center;
+	font-size: 10px;
+	padding: 3px;
+}
+
+.picbox .fakeimg {
+	background-color: #cbbd8f;
+	height: 70px;
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+hr {
+	border: 1px dashed #a3936a;
+}
+
+.formbox {
+	background-color: #efe4bb;
+	border: 3px double #a3936a;
+	padding: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.formbox h2 {
+	margin-top: 0px;
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+.formbox label {
+	font-weight: bold;
+	display: block;
+	margin-top: 8px;
+	font-size: 13px;
+}
+
+.formbox input, .formbox textarea {
+	width: 97%;
+	padding: 4px;
+	font-family: "Times New Roman", serif;
+	border: 1px solid black;
+	margin-top: 2px;
+}
+
+.formbox textarea {
+	height: 90px;
+}
+
+.submitbtn {
+	margin-top: 10px;
+	background-color: #d3c48a;
+	border: 2px outset grey;
+	padding: 6px 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.submitbtn:active {
+	border-style: inset;
+}
+
+#formmsg {
+	font-size: 12px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.entrybox {
+	background-color: white;
+	border: 1px solid #a3936a;
+	padding: 8px 12px;
+	margin-bottom: 8px;
+}
+
+.entrybox .edate {
+	font-weight: bold;
+	color: maroon;
+	font-family: "Courier New", monospace;
+}
+
+.entrybox .emeta {
+	font-size: 11px;
+	color: grey;
+	float: right;
+}
+
+.entrybox .ebody {
+	white-space: pre-wrap;
+	margin-top: 5px;
+}
+
+.footerbit {
+	background-color: #241c0e;
+	color: #b8a876;
+	text-align: center;
+	font-size: 11px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.blinky {
+	color: red;
+	font-weight: bold;
+}
+
+.counterbox {
+	text-align: center;
+	font-size: 11px;
+	margin: 10px 0px;
+}
+
+.counterbox span {
+	background-color: black;
+	color: lime;
+	font-family: "Courier New", monospace;
+	font-weight: bold;
+	padding: 1px 4px;
+	border: 1px solid grey;
+}
+
+</style>
+</head>
+<body>
+
+<div class="title-box">
+<h1>the angelos diary project</h1>
+<p style="color:#c9b988; font-size:12px; font-style:italic; margin:5px 0px 0px 0px;">a real diary i found, being typed up here bit by bit</p>
+</div>
+
+<div class="marquee-thing">⚠ still working on this site pls excuse the mess ⚠</div>
+
+<div class="navbar">
+<a href="#about">about</a> |
+<a href="#addform">add a page</a> |
+<a href="#entries">read the diary</a>
+</div>
+
+<div class="container">
+
+<div class="aboutsection" id="about">
+<p>hey, so basically i moved into this new house and it's kind of old and small-town-ish. while we were unpacking i found this book under the bedframe in my room, it was all rusty under there. the book has this brown leather cover and it turns out its like an actual government diary from ages ago, apparently the government used to MAKE kids aged 10-18 write these by law which is honestly crazy to think about now.</p>
+
+<p>i'm kind of into writing so this is actually really cool for me, like a real primary source i can use for a project. the diary belongs to someone called <b>Angelos</b> — that's not me, i just found his book. i'm going to try and put up entries as i read through it, i'm not doing it all in one go cause its a lot of pages and my handwriting-reading skills are not great lol.</p>
+
+<div class="picsrow">
+<div class="picbox"><div class="fakeimg"></div>the bedframe</div>
+<div class="picbox"><div class="fakeimg"></div>the cover</div>
+<div class="picbox"><div class="fakeimg"></div>page 1</div>
+</div>
+
+<p>so far what its about: this kid Angelos, his parents want him to be a doctor or lawyer basically since he's a kid, cause of this company called Elegchos that basically pushes that on every family. and it doesn't stop there either, it goes for like his WHOLE LIFE and things do not stay simple, so keep reading lol.</p>
+
+<p>if anyone else has one of these old diaries lying around i would love to add it on here too, more diaries = better picture of what actually happened back then instead of just what we get taught.</p>
+</div>
+
+<hr>
+
+<div class="counterbox">
+you are visitor number <span id="countnum">041209</span> (i think this counter is broken tbh)
+</div>
+
+</div>
+
+<div class="container formbox" id="addform">
+<h2>add a page to the archive</h2>
+<p style="font-size:12px; margin-top:0px;">got a page from a diary (yours, angelos's, whoever) or you just remember what it said? put it below and press the button, it'll save in your browser so its still there next time, but it only shows up for you, not other people visiting the site.</p>
+
+<label for="fdate">date on the page</label>
+<input type="text" id="fdate" placeholder="like 2039/02/01, or however its written">
+
+<label for="fdiarist">whose diary</label>
+<input type="text" id="fdiarist" placeholder="e.g. Angelos's diary, or your own family diary">
+
+<label for="fname">your name (optional)</label>
+<input type="text" id="fname" placeholder="can leave blank">
+
+<label for="fbody">the entry</label>
+<textarea id="fbody" placeholder="Dear Diary,"></textarea>
+
+<button class="submitbtn" onclick="addEntry()">add it</button>
+<div id="formmsg"></div>
+</div>
+
+<div class="container" id="entries">
+<h2 style="border-bottom: 2px solid maroon; display:inline-block;">the diary so far</h2>
+<p id="entrycountlabel" style="font-size:12px; color:grey;">loading...</p>
+<p style="font-size:12px;">
+sort:
+<select id="sortorder" onchange="renderEntries()">
+<option value="asc">oldest first</option>
+<option value="desc">newest first</option>
+</select>
+</p>
+
+<div id="entrieslist"></div>
+
+</div>
+
+<div class="footerbit">
+<p>site made by some kid who found a diary under his bedframe, not by angelos himself btw<br>
+if you know anything about "Elegchos" or the diary law <span class="blinky">PLEASE message me</span></p>
+<p style="color:#8a7a4e;">no cookies, no ads, made this in like 2 afternoons, sorry if its broken // 2071</p>
+</div>
+
+<script>
+
+var starterEntries = [
+{date:"2030/01/24", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nThe government has passed a law to have all their citizens from 10-18 to write a diary. I don't really know why they have done something as weird as this but I guess it is what it is. Mum, if you're reading this (which I know you are reading this) then you won't need an introduction to me. So I won't give you an introduction. I'm probably only going to write about some important moments as I don't feel like writing everyday or if something interesting happens I guess."},
+{date:"2030/09/17", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nA new company called Elegchos (which wierdo named it that) has just popped right from the edge of freaking nowhere. It teaches children about medicine and law, however, I have begun to dig deeper into this mysterious company, and what my keen senses found is that many parents put them there to become doctors and lawyers! My keen intuition saves the day. My friend Akrasia has already been going there since April. My parents are thinking about sending me there as well. I do NOT want to be part of that brainwash-fest. Akrasia was an outsider like me, who knows what the government are REALLY up to. But after she went into there she has NOT been herself. I might have to look into it more..."},
+{date:"2031/01/29", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nughhhhhhhhh\n\nTomorrow is the end of school and it's a bit depressing but at least I can be with my friends again. My parents told me that I would be attending Elegchos. I wonder what it will be like, I hope I can be in Akrasia's class. I hope it will be a bit better than normal school!"},
+{date:"2034/10/08", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy parents have been pestering me to start studying for my exams. They really want me to be a doctor. So much that they won't feed me dinner unless I can prove to them that I've learned something new. It's really annoying, but I feel more confident in myself as an individual. Tomorrow is my sixteenth, so more than getting presents I just want to not study for a day."},
+{date:"2035/10/15", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy tutor/teacher at Elegchos has just announced a new higher education program for those above 18 and a new entrance exam, I've heard that they are inviting several professors from the best universities to teach there, but it's just a rumor right now."},
+{date:"2037/10/22", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy entrance exam to the Advanced Medicines Institute (AMI) is in a month, and I am studying 10 hours a day. My parents are a bit worried about my health, but it's just a small cost in the grand scheme of things. If I can get into the AMI, then it will all be worth it."},
+{date:"2037/11/22", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy entrance exam is today, and it will decide which of the courses I can take. I'm really nervous. Last year, 45 052 people took the exam, but only 213 got accepted. That's only 0.3%! There are some other schools, but they aren't nearly as good."},
+{date:"2038/04/02", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nI've just been accepted into the AMI. I just received my results, and I don't really know who to share my results with, so I guess the first one I'll tell is my diary. Only a handful of students were actually selected for the program, so I suppose my studying has paid off. There might be some pressure from the staff and students at my new school, because I had to face a lot of competition to get to this point, so I'll need to do my best to be accepted amongst the students there."},
+{date:"2039/01/15", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy first day of school starts in 2 weeks. I'm a bit nervous, and I wonder how it'll go with the other students. I hope I can make a few friends, but I suppose we'll have to see how things end up. I might not write as much after I start studying, but I'll try to write about important events that might happen in the future."},
+{date:"2039/02/01", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nMy first day of school just ended, and I met a couple of people who seem nice. I hope I can get to know a few of them a bit better as the term goes on. I share a lot of common interests with the people here, cause we all have the same story, and similar motivations. Hopefully I can do well with everyone's support. I expected it to be a lot more competitive here, but the atmosphere here feels very welcoming."},
+{date:"2043/11/01", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nIt's been a few years since my last entry, and a lot has happened since then. I'm worried about what my future holds. The government recently conducted the Census, and over 3% of the population is currently a doctor (10x more than in 2030). No business is hiring doctors, and it will be very difficult to find employment opportunities. I'll graduate in a week, so I really hope luck is on my side."},
+{date:"2044/03/02", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nGreat news! I've been hired as an intern with a wage of $173 000. It's not as much as I hoped, but I'm sure I'll soon be making a lot more. There's a lot that I have to cover now, like taking care of the house, feeding myself, all that stuff."},
+{date:"2044/06/19", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nI've been promoted to a Resident Medical Officer (RMO) and am now making $187 000 a year. It's not a big jump, but it should mean I can finally spend some money on myself."},
+{date:"2046/02/25", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nIt's been two years since my first job. My life's pretty boring, but I suppose there's nothing really wrong with it. Just writing something cause' I have nothing to do. Maybe one day someone will read this diary"},
+{date:"2048/02/01", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nThe bills are starting to bite hard! My childhood friend Alex's a barista and he makes more than me. I chose this career for stability, but it seems like this job offers everything but that."},
+{date:"2050/11/03", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nThis is ridiculous, but I might have to do it. My friend Alex makes millions, and it hasn't even been a year since he opened his own coffee shop. He's offered to hire me for two hundred and fifty grand a year. I suppose it hurts my ego a bit after all I've been through. How could a job with no qualifications whatsoever make so much more than my current job. I suppose I might just accept it. I'm already living paycheck to paycheck, and I've had to skip meals just to pay the bills."},
+{date:"2052/03/27", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nThis feels like a waste of time, but I feel better knowing that I can maintain my literacy in a more digital age. I don't exactly envision much of a place for writing 'manually' in the future, so maybe this skill will die out in the future. Growing up, I used to see pieces of true art when visiting galleries, but children these days don't have the ability to pick up a pencil and start drawing whatever they feel. I know I'm not really supposed to communicate thoughts that critique the government in this book, but something I have noticed is that they are killing creativity. I don't exactly know what my friends are thinking about this issue, or whether they consider it one at all, but maybe they might have noticed the same thing as I have."},
+{date:"2055/09/10", diarist:"Angelos's diary", submitter:"", body:"Dear Diary,\n\nI am considering moving out of my home, due to lack of a better alternative. When I envisioned being a doctor, I also hoped for enough money to make my parents happy with me yet look at me now a barista. Due to an influx of people into the medical field, brought about by the government, becoming a doctor of some sort has lost its value, meaning poorer pay. Some of the jobs which were ridiculed when I was growing up are now being paid more than I could imagine. I suppose that's how life goes. You won't get everything you want. The government is considering moving everything, including diary writing, online, which I believe is going to be a method of surveillance."},
+{date:"P.S. (found at the back of the book)", diarist:"Angelos's diary", submitter:"", body:"This diary really does a great job at reflecting on societal change in the past. My perspective on life under the previous government has changed a lot after reading these diary entries, as they show that the eventual conflict and revolution didn't just come out of nowhere. The widespread, negative sentiment became rooted within the people as the government neglected them in many ways, foremost the 'system'. More consideration should have been put into the potential effects of 'convincing' children to pursue certain professions in what would effectively be thought of as brainwashing. I suppose the government wanted to tighten their grip over the nation, and become the sole authority in its citizens' lives, but it would only fuel contempt from those who felt marginalised. The many things that changed the writer's outlook on life reflect on society as a whole, and they go on to show that it was never just black and white."}
+];
+
+var STORAGEKEY = "angelos-diary-entries";
+
+function escapeHtml(str) {
+	var d = document.createElement("div");
+	d.innerText = str;
+	return d.innerHTML;
+}
+
+function sortkeyfunc(datestr) {
+	if (!datestr) return "9999";
+	var m = datestr.match(/(\d{4})[\/\-.]?(\d{2})?[\/\-.]?(\d{2})?/);
+	if (m) {
+		return (m[1]||"9999") + (m[2]||"00") + (m[3]||"00");
+	}
+	return "9999" + datestr;
+}
+
+function renderEntries() {
+	var list = document.getElementById("entrieslist");
+	var order = document.getElementById("sortorder").value;
+	var data = loadLocal();
+
+	var sorted = data.slice();
+	sorted.sort(function(a, b) {
+		var ka = sortkeyfunc(a.date);
+		var kb = sortkeyfunc(b.date);
+		if (ka < kb) return order == "asc" ? -1 : 1;
+		if (ka > kb) return order == "asc" ? 1 : -1;
+		return 0;
+	});
+
+	if (sorted.length == 0) {
+		list.innerHTML = "<div class='entrybox'><i>no entries yet, add one above</i></div>";
+	} else {
+		var html = "";
+		for (var i = 0; i < sorted.length; i++) {
+			var e = sorted[i];
+			var metabits = [];
+			if (e.diarist) metabits.push("from: " + escapeHtml(e.diarist));
+			if (e.submitter) metabits.push("added by " + escapeHtml(e.submitter));
+			html += "<div class='entrybox'>";
+			html += "<span class='edate'>" + escapeHtml(e.date || "no date") + "</span>";
+			html += "<span class='emeta'>" + metabits.join(" - ") + "</span>";
+			html += "<div class='ebody'>" + escapeHtml(e.body || "") + "</div>";
+			html += "</div>";
+		}
+		list.innerHTML = html;
+	}
+
+	document.getElementById("entrycountlabel").innerText = sorted.length + " pages up so far";
+}
+
+function loadLocal() {
+	try {
+		var raw = window.localStorage.getItem(STORAGEKEY);
+		if (raw) return JSON.parse(raw);
+	} catch (e) {}
+	return starterEntries.slice();
+}
+
+function saveLocal(data) {
+	try {
+		window.localStorage.setItem(STORAGEKEY, JSON.stringify(data));
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+function addEntry() {
+	var date = document.getElementById("fdate").value;
+	var diarist = document.getElementById("fdiarist").value;
+	var name = document.getElementById("fname").value;
+	var body = document.getElementById("fbody").value;
+
+	if (body.trim() == "") {
+		document.getElementById("formmsg").innerText = "you didnt write anything in the entry box!!";
+		document.getElementById("formmsg").style.color = "red";
+		return;
+	}
+
+	var newentry = {date: date, diarist: diarist, submitter: name, body: body};
+
+	var data = loadLocal();
+	data.push(newentry);
+	var ok = saveLocal(data);
+
+	if (!ok) {
+		document.getElementById("formmsg").innerText = "uh oh that didnt save, try again";
+		document.getElementById("formmsg").style.color = "red";
+		return;
+	}
+
+	renderEntries();
+	document.getElementById("formmsg").innerText = "added! saved in this browser";
+	document.getElementById("formmsg").style.color = "green";
+	document.getElementById("fdate").value = "";
+	document.getElementById("fdiarist").value = "";
+	document.getElementById("fname").value = "";
+	document.getElementById("fbody").value = "";
+}
+
+function startup() {
+	renderEntries();
+}
+
+startup();
+
+</script>
+
+</body>
+</html>
